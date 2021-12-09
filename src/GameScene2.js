@@ -541,7 +541,7 @@ let healthLossAmount = 10;
 
 class GameScene2 extends Scene {
   constructor() {
-    super('level1')
+    super('level2')
   }
   preload() {
     //this.load.image("logo", "assets/logo.png");
