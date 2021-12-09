@@ -647,7 +647,7 @@ class GameScene extends Scene {
   preload() {
     //this.load.image("logo", "assets/logo.png");
 
-    this.load.image("background", "Assets/World1.png");
+    this.load.image("background", require("../Assets/World1.png"));
     this.load.spritesheet("player", "Assets/PlayerSpriteSheetHorizontal.png", {
       frameWidth: 32,
       frameHeight: 32,
