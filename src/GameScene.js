@@ -726,8 +726,8 @@ class GameScene extends Scene {
     this.playerMovement();
     // this.enemyMovement();
     // this.platformMovement();
-    if(this.player.y > 650){
-      //this.gameOver();
+    if(this.player.y > 1100){
+      this.gameOver();
     }
     console.log('player at: '+this.player.body.x+','+this.player.body.y);
     console.log('enemy at: '+this.enemy.body.x+','+this.enemy.body.y);
@@ -1161,7 +1161,7 @@ class GameScene extends Scene {
   gameOver(){
     this.physics.pause();
     this.gameOverState = true;
-    this.gameOverText = this.add.text(400, 300, 'Game Over', {
+    this.gameOverText = this.add.text(400, 300, 'Game Over.\nClick to\ntry again.', {
       fontSize: '64px',
       fill: '#000'
     })
@@ -1172,20 +1172,20 @@ class GameScene extends Scene {
     this.input.on('pointerdown', () => this.scene.start('intro'))
 
   }
-    Exit(){
-      console.log("collision");
-      if(numItems > 2){
-        this.scene.start('level2');
-      }
-    }
-    UpdateItems(item_name){
-      this.items = this.add.sprite(280 + (32*numItems), 20, item_name).setScrollFactor(0);
-      itemsArr[numItems] = this.items;
-      itemsArr[numItems].visible = true;
-      numItems++;
-      console.log('numItems: ' + numItems);
+  Exit(){
+    console.log("collision");
+    if(numItems > 2){
+      this.scene.start('level2');
     }
   }
+  UpdateItems(item_name){
+    this.items = this.add.sprite(280 + (32*numItems), 20, item_name).setScrollFactor(0);
+    itemsArr[numItems] = this.items;
+    itemsArr[numItems].visible = true;
+    numItems++;
+    console.log('numItems: ' + numItems);
+  }
+}
   
 
 export default GameScene;

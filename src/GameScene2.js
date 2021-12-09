@@ -604,12 +604,12 @@ class GameScene2 extends Scene {
     this.ExitCreation();
     attackKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
 
-    this.gameOverText = this.add.text(400, 300, 'Game Over.\nClick to\ntry again.', {
-      fontSize: '64px',
-      fill: '#000'
-    })
-    this.gameOverText.setOrigin(0.5);
-    this.gameOverText.visible = false;
+    // this.gameOverText = this.add.text(400, 300, 'Game Over.\nClick to\ntry again.', {
+    //   fontSize: '64px',
+    //   fill: '#000'
+    // })
+    // this.gameOverText.setOrigin(0.5);
+    // this.gameOverText.visible = false;
 
     this.cameras.main.startFollow(this.player);
 
@@ -977,15 +977,21 @@ class GameScene2 extends Scene {
   gameOver(){
     this.physics.pause();
     this.gameOverState = true;
+    this.gameOverText = this.add.text(400, 300, 'Game Over.\nClick to\ntry again.', {
+      fontSize: '64px',
+      fill: '#000'
+    })
+    this.gameOverText.setOrigin(0.5);
+    // this.gameOverText.visible = false;
     this.gameOverText.setScrollFactor(0);
     this.gameOverText.visible = true;
-    this.input.on('pointerdown', () => this.scene.start('intro'));
+    this.input.on('pointerdown', () => this.scene.start('intro'))
 
   }
   Exit(){
     console.log("collision");
     if(numItems > 2){
-      this.scene.start('End');
+      this.scene.start('level3');
     }
   }
   UpdateItems(item_name){

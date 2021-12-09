@@ -102,15 +102,14 @@ class GameScene3 extends Scene {
     this.healthCreation();
     // this.createMovingPlatforms();
     this.ExitCreation();
-    this.UpdateItems();
     attackKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
 
-    this.gameOverText = this.add.text(400, 300, 'Game Over', {
-      fontSize: '64px',
-      fill: '#000'
-    })
-    this.gameOverText.setOrigin(0.5);
-    this.gameOverText.visible = false;
+    // this.gameOverText = this.add.text(400, 300, 'Game Over', {
+    //   fontSize: '64px',
+    //   fill: '#000'
+    // })
+    // this.gameOverText.setOrigin(0.5);
+    // this.gameOverText.visible = false;
 
     this.cameras.main.startFollow(this.player);
 
@@ -521,6 +520,12 @@ class GameScene3 extends Scene {
   gameOver(){
     this.physics.pause();
     this.gameOverState = true;
+    this.gameOverText = this.add.text(400, 300, 'Game Over.\nClick to\ntry again.', {
+      fontSize: '64px',
+      fill: '#000'
+    })
+    this.gameOverText.setOrigin(0.5);
+    // this.gameOverText.visible = false;
     this.gameOverText.setScrollFactor(0);
     this.gameOverText.visible = true;
     this.input.on('pointerdown', () => this.scene.start('intro'))
@@ -528,12 +533,16 @@ class GameScene3 extends Scene {
   }
   Exit(){
     console.log("collision");
-    this.scene.start('level2')
+    if(numItems > 2){
+      this.scene.start('End');
+    }
   }
-  UpdateItems(){
-    this.items = this.add.sprite(280, 20, "NES").setScrollFactor(0);
-    itemsArr[0] = this.items;
-    itemsArr[0].visible = true;
+  UpdateItems(item_name){
+    this.items = this.add.sprite(280 + (32*numItems), 20, item_name).setScrollFactor(0);
+    itemsArr[numItems] = this.items;
+    itemsArr[numItems].visible = true;
+    numItems++;
+    console.log('numItems: ' + numItems);
   }
 }
 
