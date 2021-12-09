@@ -555,6 +555,10 @@ class GameScene2 extends Scene {
       frameWidth: 32,
       frameHeight: 32,
     });
+    this.load.spritesheet("Man3", "assets/Level2Enemies/Man3.png", {
+      frameWidth: 32,
+      frameHeight: 32,
+    });
     this.load.image("platform", "assets/platform.png");
     this.load.image("platformSmall", "assets/platformSmall.png");
     this.load.image("wall", "assets/wall.png");
@@ -884,7 +888,7 @@ class GameScene2 extends Scene {
     }
     //if up arrow is pressed while character is standing on a surface, player jumps
     if (this.cursor.up.isDown && this.player.body.onFloor() /*|| player.body.onWall()*/ ) {
-      this.player.setVelocityY(-250);
+      this.player.setVelocityY(-300);
       //player.anims.play('jump', true);
     }
     if (!this.player.body.onFloor()) {
@@ -930,7 +934,8 @@ class GameScene2 extends Scene {
   }
 
   ExitCreation(){
-    this.ExitDoor = this.physics.add.sprite(760, 450, "player");
+    this.ExitDoor = this.physics.add.sprite(760, 450, "Caveman1");
+    // this.ExitDoor.visible = false;
     this.physics.add.collider(this.ExitDoor, this.platform);
     this.physics.add.overlap(this.ExitDoor, this.player, this.Exit, null, this);
   }

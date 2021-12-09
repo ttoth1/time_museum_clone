@@ -1120,7 +1120,7 @@ class GameScene extends Scene {
 
   ExitCreation(){
     this.ExitDoor = this.physics.add.sprite(80, 250, "Man3");
-    // this.ExitDoor.visible = false;
+    this.ExitDoor.visible = false;
     this.physics.add.collider(this.ExitDoor, this.platform);
     this.physics.add.overlap(this.ExitDoor, this.player, this.Exit, null, this);
   }
