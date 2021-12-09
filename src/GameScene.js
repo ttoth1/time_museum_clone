@@ -104,13 +104,19 @@ class GameScene extends Scene {
     this.createPlatforms();
     this.createCollision();
     this.createLong();
-    this.createPlayer(100, 850);
+    this.createPlayer(100, 895+16);
+    // this.createPlayer(1300, 200);
     // this.createEnemy(200, 850, "Caveman1");
     // this.diamondCreation(1000, 900);
     this.createEnemy(1100, 200, "Caveman1");
-    this.CavemanRobesCreation(700, 200);
-    this.DinosaurBoneCreation(650, 200);
-    this.PoisonedBerryCreation(400, 200);
+    // this.CavemanRobesCreation(1650, 350);
+    // this.DinosaurBoneCreation(950, 200);
+    // this.PoisonedBerryCreation(400, 200);
+    
+    this.CavemanRobesCreation(1675, 350);
+    this.DinosaurBoneCreation(500, 400);
+    this.PoisonedBerryCreation(880, 750);
+
     this.healthCreation();
     // this.createMovingPlatforms();
     this.ExitCreation();
@@ -124,10 +130,14 @@ class GameScene extends Scene {
     // this.gameOverText.visible = false;
 
     this.cameras.main.startFollow(this.player);
+    this.add.text(100, 750, "Move using arrows.\nJump on enemies to kill.\nCollect all items\nto unlock exit door.", {
+      fontSize: "20px",
+      fill: "#000",
+    });
 
 
     this.diamond = this.add.sprite(480, 20, "diamond").setScrollFactor(0);
-    this.scoreText = this.add.text(500, 15, "Score: " + score, {
+    this.scoreText = this.add.text(500, 15, "Items remaining: " + (3-numItems), {
       fontSize: "20px",
       fill: "#000",
     });
@@ -178,7 +188,7 @@ class GameScene extends Scene {
     this.platform.create(2800, 432, "platform").setAlpha(0);
     this.platform.create(2400, 432, "platform").setAlpha(0);
     this.platform.create(2280, 432, "platform").setAlpha(0);
-    //this.platform.create(1900, 432, "platform").setAlpha(0.5);
+    //this.platform.create(1900, 432, "platform").setAlpha(0);
 
     this.platform.create(1890, 530, "platform").setAlpha(0);
     this.platform.create(1600, 530, "platform").setAlpha(0);
@@ -205,7 +215,7 @@ class GameScene extends Scene {
     this.platform.create(2040, 689, "platform").setAlpha(0);
     this.platform.create(2040, 689, "platform").setAlpha(0);
     // this.platform.visible = false;
-    // this.plat1.setAlpha(.5);
+    // this.plat1.setAlpha(0);
     this.cursor = this.input.keyboard.createCursorKeys();
 
 
@@ -363,7 +373,7 @@ class GameScene extends Scene {
   }
   createEnemy(x, y, ID) {
     this.enemy = this.physics.add.sprite(x, y, ID);
-    this.enemy.body.collideWorldBounds = true;
+    this.enemy.body.collideWorldBounds = false;
     this.physics.add.collider(this.enemy, this.tile);
     this.physics.add.collider(this.enemy, this.long);
     this.physics.add.collider(this.enemy, this.platform);
@@ -381,31 +391,33 @@ class GameScene extends Scene {
       repeat: -1,
     });
   }
-  diamondCreation(x, y) {
-    this.diamond = this.add.group();
-    this.diamond.enableBody = true;
-    this.diamond = this.physics.add.sprite(x, y, "diamond");
-    this.diamond.setBounce(0.1);
-    this.diamond.body.collideWorldBounds = true;
-    this.physics.add.collider(this.diamond, this.platform);
-    this.physics.add.overlap(this.player, this.diamond, this.collectDiamond, null, this);
-    this.diamond.setScale(1);
+  // diamondCreation(x, y) {
+  //   this.diamond = this.add.group();
+  //   this.diamond.enableBody = true;
+  //   this.diamond = this.physics.add.sprite(x, y, "diamond");
+  //   this.diamond.setBounce(0.1);
+  //   this.diamond.body.collideWorldBounds = true;
+  //   this.physics.add.collider(this.diamond, this.platform);
+  //   this.physics.add.overlap(this.player, this.diamond, this.collectDiamond, null, this);
+  //   this.diamond.setScale(1);
 
-    this.diamond = this.add.sprite(480, 20, "diamond").setScrollFactor(0);
-    this.scoreText = this.add.text(500, 15, "Score: ", {
-      fontSize: "20px",
-      fill: "#000",
-    });
-    this.scoreText.setScrollFactor(0);
-  }
+  //   this.diamond = this.add.sprite(480, 20, "diamond").setScrollFactor(0);
+  //   this.scoreText = this.add.text(500, 15, "Score: ", {
+  //     fontSize: "20px",
+  //     fill: "#000",
+  //   });
+  //   this.scoreText.setScrollFactor(0);
+  // }
 
   CavemanRobesCreation(x, y){
     this.cavemanRobes = this.add.group();
     this.cavemanRobes.enableBody = true;
     this.cavemanRobes = this.physics.add.sprite(x, y, 'CavemanRobes');
     this.cavemanRobes.setBounce(0.1);
-    this.cavemanRobes.body.collideWorldBounds = true;
+    this.cavemanRobes.body.collideWorldBounds = false;
     this.physics.add.collider(this.cavemanRobes, this.platform);
+    this.physics.add.collider(this.cavemanRobes, this.tile);
+    this.physics.add.collider(this.cavemanRobes, this.long);
     this.physics.add.overlap(this.player, this.cavemanRobes, this.collectCavemanRobes, null, this);
     this.cavemanRobes.setScale(1);
   }
@@ -414,7 +426,7 @@ class GameScene extends Scene {
     this.dinosaurBone.enableBody = true;
     this.dinosaurBone = this.physics.add.sprite(x, y, 'DinosaurBone');
     this.dinosaurBone.setBounce(0.1);
-    this.dinosaurBone.body.collideWorldBounds = true;
+    this.dinosaurBone.body.collideWorldBounds = false;
     this.physics.add.collider(this.dinosaurBone, this.platform);
     this.physics.add.collider(this.dinosaurBone, this.tile);
     this.physics.add.collider(this.dinosaurBone, this.long);
@@ -426,8 +438,10 @@ class GameScene extends Scene {
     this.poisonedBerry.enableBody = true;
     this.poisonedBerry = this.physics.add.sprite(x, y, 'PoisonedBerry');
     this.poisonedBerry.setBounce(0.1);
-    this.poisonedBerry.body.collideWorldBounds = true;
+    this.poisonedBerry.body.collideWorldBounds = false;
     this.physics.add.collider(this.poisonedBerry, this.platform);
+    this.physics.add.collider(this.poisonedBerry, this.tile);
+    this.physics.add.collider(this.poisonedBerry, this.long);
     this.physics.add.overlap(this.player, this.poisonedBerry, this.collectPoisonedBerry, null, this);
     this.poisonedBerry.setScale(1);
   }
@@ -505,28 +519,25 @@ class GameScene extends Scene {
   // platformMovement(){
   //   console.log(this.movingPlatform)
   // }
-  collectDiamond(player, diamond) {
-    diamond.disableBody(true, true);
-    score += 10;
-    this.scoreText.setText("Score: " + score);
-  };
+  // collectDiamond(player, diamond) {
+  //   diamond.disableBody(true, true);
+  //   score += 10;
+  //   this.scoreText.setText("Score: " + score);
+  // };
   collectCavemanRobes(player, cavemanRobes){
     cavemanRobes.disableBody(true, true);
-    score += 10;
-    this.scoreText.setText("Score: " + score);
     this.UpdateItems("CavemanRobes");
+    this.scoreText.setText("Items remaining: " + (3-numItems));
   }
   collectDinosaurBones(player, dinosaurBone){
     dinosaurBone.disableBody(true, true);
-    score += 10;
-    this.scoreText.setText("Score: " + score);
     this.UpdateItems("DinosaurBone");
+    this.scoreText.setText("Items remaining: " + (3-numItems));
   }
   collectPoisonedBerry(player, poisonedBerry){
     poisonedBerry.disableBody(true, true);
-    score += 10;
-    this.scoreText.setText("Score: " + score);
     this.UpdateItems("PoisonedBerry");
+    this.scoreText.setText("Items remaining: " + (3-numItems));
   }
 
   ExitCreation(){

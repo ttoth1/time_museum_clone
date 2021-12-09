@@ -15,11 +15,11 @@ let itemsArr = new Array(2);
 const maxVelocityX = 200; // maximum player velocity in x direction
 
 let enemy;
-let enemyX = 500;
-let enemyY = 150;
+let enemyX = 800;
+let enemyY = 250;
 const enemySpeed = 100; // speed of enemy movement
-const enemyLeft = 450; // left bound for enemy
-const enemyRight = 600;
+const enemyLeft = 700; // left bound for enemy
+const enemyRight = 900;
 
 let platform;
 let movingPlatform;
@@ -108,11 +108,13 @@ class GameScene2 extends Scene {
     this.createPlatforms();
     this.createCollision();
     this.createLong();
-    this.createPlayer(400,200);
+    this.createPlayer(450, 1792+16);
+    // this.createPlayer(650, 250);
+    // this.createEnemy(1100, 200);
     this.createEnemy();
-    this.CureAllPotionCreation(600, 50);
+    this.CureAllPotionCreation(750, 250);
     this.ToyRobotCreation(120, 100);
-    this.TalkingToothbrush(450, 50);
+    this.TalkingToothbrushCreation(670, 1200);
     this.healthCreation();
     this.ExitCreation();
     attackKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
@@ -127,16 +129,21 @@ class GameScene2 extends Scene {
     this.cameras.main.startFollow(this.player);
 
     this.diamond = this.add.sprite(480, 20, "diamond").setScrollFactor(0);
-    this.scoreText = this.add.text(500, 15, "Score: " + score, {
+    this.scoreText = this.add.text(500, 15, "Items remaining: " + (3-numItems), {
       fontSize: "20px",
-      fill: "#000",
+      fill: "#FFF",
     });
     this.scoreText.setScrollFactor(0);
 
   }
   update() {
     this.playerMovement();
-    this.enemyMovement();
+    // this.enemyMovement();
+    console.log('player at: '+this.player.body.x+','+this.player.body.y);
+    // console.log('toyRobot at: '+this.toyRobot.body.x+','+this.toyRobot.body.y);
+    // console.log('talkingToothbrush at: '+this.talkingToothbrush.body.x+','+this.talkingToothbrush.body.y);
+    // console.log('cureAllPotion at: '+this.cureAllPotion.body.x+','+this.cureAllPotion.body.y);
+
     // this.platformMovement();
     // if(this.player.y > 650){
     //   this.gameOver();
@@ -223,7 +230,7 @@ class GameScene2 extends Scene {
 
   
     // this.platform.visible = false;
-    // this.plat1.setAlpha(.5);
+    // this.plat1.setAlpha(0);
     this.cursor = this.input.keyboard.createCursorKeys();
 
 
@@ -296,60 +303,66 @@ class GameScene2 extends Scene {
     });
   }
   createEnemy() {
-    this.enemy = this.physics.add.sprite(enemyX, enemyY, "player", 1);
-    this.enemy.body.collideWorldBounds = true;
+    this.enemy = this.physics.add.sprite(enemyX, enemyY, "Man3");
+    this.enemy.body.collideWorldBounds = false;
     this.physics.add.collider(this.enemy, this.platform);
     this.physics.add.collider(this.player, this.enemy, this.hitEnemy, null, this);
     this.enemy.setBounce(0.1);
-    this.enemy.setVelocityX(enemySpeed);
+    // this.enemy.setVelocityX(enemySpeed);
   }
   // createCaveman(x, y, )
-  diamondCreation(x, y, item_name) {
-    this.diamond = this.add.group();
-    this.diamond.enableBody = true;
-    this.diamond = this.physics.add.sprite(x, y, item_name);
-    this.diamond.setBounce(0.1);
-    this.diamond.body.collideWorldBounds = true;
-    this.physics.add.collider(this.diamond, this.platform);
-    this.physics.add.overlap(this.player, this.diamond, this.collectDiamond, null, this);
-    this.diamond.setScale(1);
+  // diamondCreation(x, y, item_name) {
+  //   this.diamond = this.add.group();
+  //   this.diamond.enableBody = true;
+  //   this.diamond = this.physics.add.sprite(x, y, item_name);
+  //   this.diamond.setBounce(0.1);
+  //   this.diamond.body.collideWorldBounds = true;
+  //   this.physics.add.collider(this.diamond, this.platform);
+  //   this.physics.add.overlap(this.player, this.diamond, this.collectDiamond, null, this);
+  //   this.diamond.setScale(1);
 
-    this.diamond = this.add.sprite(480, 20, "diamond").setScrollFactor(0);
-    this.scoreText = this.add.text(500, 15, "Score: ", {
-      fontSize: "20px",
-      fill: "#000",
-    });
-    this.scoreText.setScrollFactor(0);
-  }
+  //   this.diamond = this.add.sprite(480, 20, "diamond").setScrollFactor(0);
+  //   this.scoreText = this.add.text(500, 15, "Score: ", {
+  //     fontSize: "20px",
+  //     fill: "#000",
+  //   });
+  //   this.scoreText.setScrollFactor(0);
+  // }
   CureAllPotionCreation(x, y){
-    this.cavemanRobes = this.add.group();
-    this.cavemanRobes.enableBody = true;
-    this.cavemanRobes = this.physics.add.sprite(x, y, 'CureAllPotion');
-    this.cavemanRobes.setBounce(0.1);
-    this.cavemanRobes.body.collideWorldBounds = true;
-    this.physics.add.collider(this.cavemanRobes, this.platform);
-    this.physics.add.overlap(this.player, this.cavemanRobes, this.collectCureAllPotion, null, this);
-    this.cavemanRobes.setScale(1);
+    this.cureAllPotion = this.add.group();
+    this.cureAllPotion.enableBody = true;
+    this.cureAllPotion = this.physics.add.sprite(x, y, 'CureAllPotion');
+    this.cureAllPotion.setBounce(0.1);
+    this.cureAllPotion.body.collideWorldBounds = false;
+    this.physics.add.collider(this.cureAllPotion, this.platform);
+    this.physics.add.collider(this.cureAllPotion, this.tile);
+    this.physics.add.collider(this.cureAllPotion, this.long);
+    this.physics.add.overlap(this.player, this.cureAllPotion, this.collectCureAllPotion, null, this);
+    this.cureAllPotion.setScale(1);
   }
   ToyRobotCreation(x, y){
-    this.dinosaurBone = this.add.group();
-    this.dinosaurBone.enableBody = true;
-    this.dinosaurBone = this.physics.add.sprite(x, y, 'ToyRobot');
-    this.dinosaurBone.setBounce(0.1);
-    this.dinosaurBone.body.collideWorldBounds = true;
-    this.physics.add.collider(this.dinosaurBone, this.platform);
-    this.physics.add.overlap(this.player, this.dinosaurBone, this.collectToyRobot, null, this);
-    this.dinosaurBone.setScale(1);
+    this.toyRobot = this.add.group();
+    this.toyRobot.enableBody = true;
+    this.toyRobot = this.physics.add.sprite(x, y, 'ToyRobot');
+    this.toyRobot.setBounce(0.1);
+    this.toyRobot.body.collideWorldBounds = false;
+    this.physics.add.collider(this.toyRobot, this.platform);
+    this.physics.add.collider(this.toyRobot, this.tile);
+    this.physics.add.collider(this.toyRobot, this.long);
+    this.physics.add.overlap(this.player, this.toyRobot, this.collectToyRobot, null, this);
+    this.toyRobot.setScale(1);
   }
-  TalkingToothbrush(x, y){
-    this.poisonedBerry = this.add.group();
-    this.poisonedBerry.enableBody = true;
-    this.poisonedBerry = this.physics.add.sprite(x, y, 'TalkingToothbrush');
-    this.poisonedBerry.setBounce(0.1);
-    this.poisonedBerry.body.collideWorldBounds = true;
-    this.physics.add.collider(this.poisonedBerry, this.platform);
-    this.physics.add.overlap(this.player, this.poisonedBerry, this.collectTalkingToothbrush, null, this);
-    this.poisonedBerry.setScale(1);
+  TalkingToothbrushCreation(x, y){
+    this.talkingToothbrush = this.add.group();
+    this.talkingToothbrush.enableBody = true;
+    this.talkingToothbrush = this.physics.add.sprite(x, y, 'TalkingToothbrush');
+    this.talkingToothbrush.setBounce(0.1);
+    this.talkingToothbrush.body.collideWorldBounds = false;
+    this.physics.add.collider(this.talkingToothbrush, this.platform);
+    this.physics.add.collider(this.talkingToothbrush, this.tile);
+    this.physics.add.collider(this.talkingToothbrush, this.long);
+    this.physics.add.overlap(this.player, this.talkingToothbrush, this.collectTalkingToothbrush, null, this);
+    this.talkingToothbrush.setScale(1);
   }
 
   // multiItem(x, y, item){
@@ -423,28 +436,25 @@ class GameScene2 extends Scene {
   // platformMovement(){
   //   console.log(this.movingPlatform)
   // }
-  collectDiamond(player, diamond) {
-    diamond.disableBody(true, true);
-    score += 10;
-    this.scoreText.setText("Score: " + score);
-  }
-  collectCureAllPotion(player, cavemanRobes){
-    cavemanRobes.disableBody(true, true);
-    score += 10;
-    this.scoreText.setText("Score: " + score);
+  // collectDiamond(player, diamond) {
+  //   diamond.disableBody(true, true);
+  //   score += 10;
+  //   this.scoreText.setText("Score: " + score);
+  // }
+  collectCureAllPotion(player, cureAllPotion){
+    cureAllPotion.disableBody(true, true);
     this.UpdateItems("CureAllPotion");
+    this.scoreText.setText("Items remaining: " + (3-numItems));
   }
-  collectToyRobot(player, dinosaurBone){
-    dinosaurBone.disableBody(true, true);
-    score += 10;
-    this.scoreText.setText("Score: " + score);
+  collectToyRobot(player, toyRobot){
+    toyRobot.disableBody(true, true);
     this.UpdateItems("ToyRobot");
+    this.scoreText.setText("Items remaining: " + (3-numItems));
   }
-  collectTalkingToothbrush(player, poisonedBerry){
-    poisonedBerry.disableBody(true, true);
-    score += 10;
-    this.scoreText.setText("Score: " + score);
+  collectTalkingToothbrush(player, talkingToothbrush){
+    talkingToothbrush.disableBody(true, true);
     this.UpdateItems("TalkingToothbrush");
+    this.scoreText.setText("Items remaining: " + (3-numItems));
   }
 
   ExitCreation(){
@@ -506,7 +516,7 @@ class GameScene2 extends Scene {
   Exit(){
     console.log("collision");
     if(numItems > 2){
-      this.scene.start('level3');
+      this.scene.start('End');
     }
   }
   UpdateItems(item_name){

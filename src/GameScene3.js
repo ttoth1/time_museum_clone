@@ -56,7 +56,7 @@ class GameScene3 extends Scene {
   preload() {
     //this.load.image("logo", "assets/logo.png");
 
-    this.load.image("background", "assets/world3.png");
+    this.load.image("bg3", "assets/world3.png");
     this.load.spritesheet("player", "assets/PlayerSpriteSheetHorizontal.png", {
       frameWidth: 32,
       frameHeight: 32,
@@ -93,12 +93,12 @@ class GameScene3 extends Scene {
 
   }
   create() {
-    const background = this.add.image(0, 0, 'background').setScale(1).setScrollFactor(1);;
+    const background = this.add.image(0, 0, 'bg3').setScale(1).setScrollFactor(1);;
     background.setOrigin(0, 0);
     this.createPlatforms();
     this.createCollision();
     this.createLong();
-    this.createPlayer(1000, 2600);
+    this.createPlayer(1000, 2656+16);
     this.createEnemy();
     this.diamondCreation(500, 200, "CavemanRobes");
     this.diamondCreation(100, 100, "DinosaurBone");
@@ -121,10 +121,11 @@ class GameScene3 extends Scene {
   update() {
     this.playerMovement();
     this.enemyMovement();
+    console.log('player at: '+this.player.body.x+','+this.player.body.y);
     // this.platformMovement();
-    if(this.player.y > 650){
-      //this.gameOver();
-    }
+    // if(this.player.y > 650){
+    //   //this.gameOver();
+    // }
   }
   // createMovingPlatforms(){
   //   this.movingPlatform = this.add.group();
@@ -138,93 +139,93 @@ class GameScene3 extends Scene {
     // this.platform.create(600, 582, "platform").setScale(1).refreshBody();
 
     //Floor 1
-    let plat1 = this.platform.create(1000, 2704, "platform").setAlpha(0.5);
-    let plat2 = this.platform.create(1400, 2704, "platform").setAlpha(0.5);
-    let plat5 = this.platform.create(1800, 2704, "platform").setAlpha(0.5);
-    let plat6 = this.platform.create(2200, 2704, "platform").setAlpha(0.5);
-    let plat7 = this.platform.create(2600, 2704, "platform").setAlpha(0.5);
-    let plat8 = this.platform.create(3000, 2704, "platform").setAlpha(0.5);
+    let plat1 = this.platform.create(1000, 2704, "platform").setAlpha(0);
+    let plat2 = this.platform.create(1400, 2704, "platform").setAlpha(0);
+    let plat5 = this.platform.create(1800, 2704, "platform").setAlpha(0);
+    let plat6 = this.platform.create(2200, 2704, "platform").setAlpha(0);
+    let plat7 = this.platform.create(2600, 2704, "platform").setAlpha(0);
+    let plat8 = this.platform.create(3000, 2704, "platform").setAlpha(0);
 
     //Floor 2
-    let plat3 = this.platform.create(1000, 2576, "platform").setAlpha(0.5);
-    let plat4 = this.platform.create(1367, 2576, "platform").setAlpha(0.5);
-    let plat9 = this.platform.create(1927, 2576, "platform").setAlpha(0.5);
-    let plat10 = this.platform.create(2233, 2576, "platform").setAlpha(0.5);
-    let plat11 = this.platform.create(2792, 2576, "platform").setAlpha(0.5);
-    let plat23 = this.platform.create(3000, 2576, "platform").setAlpha(0.5);
+    let plat3 = this.platform.create(1000, 2576, "platform").setAlpha(0);
+    let plat4 = this.platform.create(1367, 2576, "platform").setAlpha(0);
+    let plat9 = this.platform.create(1927, 2576, "platform").setAlpha(0);
+    let plat10 = this.platform.create(2233, 2576, "platform").setAlpha(0);
+    let plat11 = this.platform.create(2792, 2576, "platform").setAlpha(0);
+    let plat23 = this.platform.create(3000, 2576, "platform").setAlpha(0);
 
     //Floor 3
-    let plat12 = this.platform.create(1095, 2448, "platform").setAlpha(0.5);
-    let plat13 = this.platform.create(1400, 2448, "platform").setAlpha(0.5);
-    let plat14 = this.platform.create(1800, 2448, "platform").setAlpha(0.5);
-    let plat15 = this.platform.create(2200, 2448, "platform").setAlpha(0.5);
-    let plat16 = this.platform.create(2487, 2448, "platform").setAlpha(0.5);
-    let plat22 = this.platform.create(3081, 2448, "platform").setAlpha(0.5);
+    let plat12 = this.platform.create(1095, 2448, "platform").setAlpha(0);
+    let plat13 = this.platform.create(1400, 2448, "platform").setAlpha(0);
+    let plat14 = this.platform.create(1800, 2448, "platform").setAlpha(0);
+    let plat15 = this.platform.create(2200, 2448, "platform").setAlpha(0);
+    let plat16 = this.platform.create(2487, 2448, "platform").setAlpha(0);
+    let plat22 = this.platform.create(3081, 2448, "platform").setAlpha(0);
 
     //Floor 4
-    let plat17 = this.platform.create(1000, 2320, "platform").setAlpha(0.5);
-    let plat18 = this.platform.create(1400, 2320, "platform").setAlpha(0.5);
-    //let plat19 = this.platform.create(1600, 2320, "platform").setAlpha(0.5);
-    let plat20 = this.platform.create(2151, 2320, "platform").setAlpha(0.5);
-    let plat21 = this.platform.create(2551, 2320, "platform").setAlpha(0.5);
-    let plat29 = this.platform.create(2951, 2320, "platform").setAlpha(0.5);
+    let plat17 = this.platform.create(1000, 2320, "platform").setAlpha(0);
+    let plat18 = this.platform.create(1400, 2320, "platform").setAlpha(0);
+    //let plat19 = this.platform.create(1600, 2320, "platform").setAlpha(0);
+    let plat20 = this.platform.create(2151, 2320, "platform").setAlpha(0);
+    let plat21 = this.platform.create(2551, 2320, "platform").setAlpha(0);
+    let plat29 = this.platform.create(2951, 2320, "platform").setAlpha(0);
 
     //Floor 5
-    let plat24 = this.platform.create(791, 2191, "platform").setAlpha(0.5);
-    let plat25 = this.platform.create(1288, 2191, "platform").setAlpha(0.5);
-    let plat26 = this.platform.create(1688, 2191, "platform").setAlpha(0.5);
-    let plat27 = this.platform.create(1911, 2191, "platform").setAlpha(0.5);
-    let plat28 = this.platform.create(2407, 2191, "platform").setAlpha(0.5);
-    let plat31 = this.platform.create(2807, 2191, "platform").setAlpha(0.5);
+    let plat24 = this.platform.create(791, 2191, "platform").setAlpha(0);
+    let plat25 = this.platform.create(1288, 2191, "platform").setAlpha(0);
+    let plat26 = this.platform.create(1688, 2191, "platform").setAlpha(0);
+    let plat27 = this.platform.create(1911, 2191, "platform").setAlpha(0);
+    let plat28 = this.platform.create(2407, 2191, "platform").setAlpha(0);
+    let plat31 = this.platform.create(2807, 2191, "platform").setAlpha(0);
 
     //Floor 6
-    let plat30 = this.platform.create(919, 2064, "platform").setAlpha(0.5);
-    //let plat32 = this.platform.create(2280, 2064, "platform").setAlpha(0.5);
-    let plat33 = this.platform.create(919, 2064, "platform").setAlpha(0.5);
-    let plat34 = this.platform.create(919, 2064, "platform").setAlpha(0.5);
-    let plat35 = this.platform.create(919, 2064, "platform").setAlpha(0.5);
+    let plat30 = this.platform.create(919, 2064, "platform").setAlpha(0);
+    //let plat32 = this.platform.create(2280, 2064, "platform").setAlpha(0);
+    let plat33 = this.platform.create(919, 2064, "platform").setAlpha(0);
+    let plat34 = this.platform.create(919, 2064, "platform").setAlpha(0);
+    let plat35 = this.platform.create(919, 2064, "platform").setAlpha(0);
 
     //Floor 7
-    let plat36 = this.platform.create(1000, 1872, "platform").setAlpha(0.5);
-    let plat37 = this.platform.create(1016, 1872, "platform").setAlpha(0.5);
-    let plat38 = this.platform.create(1016, 1872, "platform").setAlpha(0.5);
-    let plat39 = this.platform.create(1016, 1872, "platform").setAlpha(0.5);
-    let plat40 = this.platform.create(1016, 1872, "platform").setAlpha(0.5);
+    let plat36 = this.platform.create(1000, 1872, "platform").setAlpha(0);
+    let plat37 = this.platform.create(1016, 1872, "platform").setAlpha(0);
+    let plat38 = this.platform.create(1016, 1872, "platform").setAlpha(0);
+    let plat39 = this.platform.create(1016, 1872, "platform").setAlpha(0);
+    let plat40 = this.platform.create(1016, 1872, "platform").setAlpha(0);
 
     //Floor 8
-    let plat41 = this.platform.create(1000, 1744, "platform").setAlpha(0.5);
-    let plat42 = this.platform.create(1400, 1744, "platform").setAlpha(0.5); 
-    let plat43 = this.platform.create(1800, 1744, "platform").setAlpha(0.5); 
-    let plat44 = this.platform.create(2200, 1744, "platform").setAlpha(0.5); 
-    let plat45 = this.platform.create(2600, 1744, "platform").setAlpha(0.5);
-    let plat46 = this.platform.create(2744, 1744, "platform").setAlpha(0.5);
+    let plat41 = this.platform.create(1000, 1744, "platform").setAlpha(0);
+    let plat42 = this.platform.create(1400, 1744, "platform").setAlpha(0); 
+    let plat43 = this.platform.create(1800, 1744, "platform").setAlpha(0); 
+    let plat44 = this.platform.create(2200, 1744, "platform").setAlpha(0); 
+    let plat45 = this.platform.create(2600, 1744, "platform").setAlpha(0);
+    let plat46 = this.platform.create(2744, 1744, "platform").setAlpha(0);
     
     //Floor 9
-    let plat47 = this.platform.create(1128, 1616, "platform").setAlpha(0.5);
-    let plat48 = this.platform.create(1528, 1616, "platform").setAlpha(0.5);
-    let plat49 = this.platform.create(1928, 1616, "platform").setAlpha(0.5);
-    let plat50 = this.platform.create(2328, 1616, "platform").setAlpha(0.5);
-    let plat51 = this.platform.create(2728, 1616, "platform").setAlpha(0.5);
-    let plat52 = this.platform.create(3128, 1616, "platform").setAlpha(0.5);
+    let plat47 = this.platform.create(1128, 1616, "platform").setAlpha(0);
+    let plat48 = this.platform.create(1528, 1616, "platform").setAlpha(0);
+    let plat49 = this.platform.create(1928, 1616, "platform").setAlpha(0);
+    let plat50 = this.platform.create(2328, 1616, "platform").setAlpha(0);
+    let plat51 = this.platform.create(2728, 1616, "platform").setAlpha(0);
+    let plat52 = this.platform.create(3128, 1616, "platform").setAlpha(0);
 
     //Floor 10
-    let plat53 = this.platform.create(855, 1488, "platform").setAlpha(0.5);
+    let plat53 = this.platform.create(855, 1488, "platform").setAlpha(0);
 
     //Floor 12
-    let plat54 = this.platform.create(855, 1232, "platform").setAlpha(0.5);
-    let plat57 = this.platform.create(2856, 1168, "platform").setAlpha(0.5);
-    let plat58 = this.platform.create(3000, 1168, "platform").setAlpha(0.5);
+    let plat54 = this.platform.create(855, 1232, "platform").setAlpha(0);
+    let plat57 = this.platform.create(2856, 1168, "platform").setAlpha(0);
+    let plat58 = this.platform.create(3000, 1168, "platform").setAlpha(0);
 
     //Ceiling
-    let plat55 = this.platform.create(1000, 976, "platform").setAlpha(0.5);
-    let plat56 = this.platform.create(1400, 976, "platform").setAlpha(0.5);
-    let plat59 = this.platform.create(1800, 976, "platform").setAlpha(0.5);
-    let plat60 = this.platform.create(2200, 976, "platform").setAlpha(0.5);
-    let plat61 = this.platform.create(2600, 976, "platform").setAlpha(0.5);
-    let plat62 = this.platform.create(3000, 976, "platform").setAlpha(0.5);
+    let plat55 = this.platform.create(1000, 976, "platform").setAlpha(0);
+    let plat56 = this.platform.create(1400, 976, "platform").setAlpha(0);
+    let plat59 = this.platform.create(1800, 976, "platform").setAlpha(0);
+    let plat60 = this.platform.create(2200, 976, "platform").setAlpha(0);
+    let plat61 = this.platform.create(2600, 976, "platform").setAlpha(0);
+    let plat62 = this.platform.create(3000, 976, "platform").setAlpha(0);
 
     // this.platform.visible = false;
-    // this.plat1.setAlpha(.5);
+    // this.plat1.setAlpha(0);
     this.cursor = this.input.keyboard.createCursorKeys();
 
 
@@ -233,56 +234,56 @@ class GameScene3 extends Scene {
   createCollision() {
     this.tile = this.physics.add.staticGroup();
     //Bottom Tiles
-    let tile1 = this.tile.create(1200, 1104, "whiteTile").setAlpha(0.5);
-    let tile2 = this.tile.create(1136, 1104, "whiteTile").setAlpha(0.5);
-    let tile3 = this.tile.create(1104, 1104, "whiteTile").setAlpha(0.5);
-    let tile4 = this.tile.create(1072, 1104, "whiteTile").setAlpha(0.5);
-    let tile5 = this.tile.create(1040, 1104, "whiteTile").setAlpha(0.5);
-    let tile6 = this.tile.create(1008, 1104, "whiteTile").setAlpha(0.5);
-    let tile7 = this.tile.create(976, 1104, "whiteTile").setAlpha(0.5);
-    let tile8 = this.tile.create(944, 1104, "whiteTile").setAlpha(0.5);
-    let tile9 = this.tile.create(912, 1104, "whiteTile").setAlpha(0.5);
+    let tile1 = this.tile.create(1200, 1104, "whiteTile").setAlpha(0);
+    let tile2 = this.tile.create(1136, 1104, "whiteTile").setAlpha(0);
+    let tile3 = this.tile.create(1104, 1104, "whiteTile").setAlpha(0);
+    let tile4 = this.tile.create(1072, 1104, "whiteTile").setAlpha(0);
+    let tile5 = this.tile.create(1040, 1104, "whiteTile").setAlpha(0);
+    let tile6 = this.tile.create(1008, 1104, "whiteTile").setAlpha(0);
+    let tile7 = this.tile.create(976, 1104, "whiteTile").setAlpha(0);
+    let tile8 = this.tile.create(944, 1104, "whiteTile").setAlpha(0);
+    let tile9 = this.tile.create(912, 1104, "whiteTile").setAlpha(0);
 
     //Floor
-    let tile16 = this.tile.create(1200, 1360, "whiteTile").setAlpha(0.5);
-    let tile17 = this.tile.create(1136, 1360, "whiteTile").setAlpha(0.5);
-    let tile18 = this.tile.create(1104, 1360, "whiteTile").setAlpha(0.5);
-    let tile19 = this.tile.create(1072, 1360, "whiteTile").setAlpha(0.5);
-    let tile20 = this.tile.create(1040, 1360, "whiteTile").setAlpha(0.5);
-    let tile21 = this.tile.create(1008, 1360, "whiteTile").setAlpha(0.5);
-    let tile22 = this.tile.create(976, 1360, "whiteTile").setAlpha(0.5);
-    let tile23 = this.tile.create(944, 1360, "whiteTile").setAlpha(0.5);
-    let tile24 = this.tile.create(912, 1360, "whiteTile").setAlpha(0.5);
+    let tile16 = this.tile.create(1200, 1360, "whiteTile").setAlpha(0);
+    let tile17 = this.tile.create(1136, 1360, "whiteTile").setAlpha(0);
+    let tile18 = this.tile.create(1104, 1360, "whiteTile").setAlpha(0);
+    let tile19 = this.tile.create(1072, 1360, "whiteTile").setAlpha(0);
+    let tile20 = this.tile.create(1040, 1360, "whiteTile").setAlpha(0);
+    let tile21 = this.tile.create(1008, 1360, "whiteTile").setAlpha(0);
+    let tile22 = this.tile.create(976, 1360, "whiteTile").setAlpha(0);
+    let tile23 = this.tile.create(944, 1360, "whiteTile").setAlpha(0);
+    let tile24 = this.tile.create(912, 1360, "whiteTile").setAlpha(0);
 
     //Jumps
-    let tile10 = this.tile.create(1200, 1296, "whiteTile").setAlpha(0.5);
-    let tile11 = this.tile.create(1264, 1200, "whiteTile").setAlpha(0.5);
-    let tile12 = this.tile.create(1264, 1392, "whiteTile").setAlpha(0.5);
-    let tile13 = this.tile.create(1200, 1488, "whiteTile").setAlpha(0.5);
-    let tile14 = this.tile.create(912, 1104, "whiteTile").setAlpha(0.5);
-    let tile15 = this.tile.create(912, 1104, "whiteTile").setAlpha(0.5);
+    let tile10 = this.tile.create(1200, 1296, "whiteTile").setAlpha(0);
+    let tile11 = this.tile.create(1264, 1200, "whiteTile").setAlpha(0);
+    let tile12 = this.tile.create(1264, 1392, "whiteTile").setAlpha(0);
+    let tile13 = this.tile.create(1200, 1488, "whiteTile").setAlpha(0);
+    let tile14 = this.tile.create(912, 1104, "whiteTile").setAlpha(0);
+    let tile15 = this.tile.create(912, 1104, "whiteTile").setAlpha(0);
     
     //Final Jumps
-    let tile25 = this.tile.create(1744, 1552, "whiteTile").setAlpha(0.5);
-    let tile26 = this.tile.create(1776, 1552, "whiteTile").setAlpha(0.5);
+    let tile25 = this.tile.create(1744, 1552, "whiteTile").setAlpha(0);
+    let tile26 = this.tile.create(1776, 1552, "whiteTile").setAlpha(0);
 
-    let tile34 = this.tile.create(1872, 1488, "whiteTile").setAlpha(0.5);
-    let tile27 = this.tile.create(1904, 1488, "whiteTile").setAlpha(0.5);
+    let tile34 = this.tile.create(1872, 1488, "whiteTile").setAlpha(0);
+    let tile27 = this.tile.create(1904, 1488, "whiteTile").setAlpha(0);
 
-    let tile28 = this.tile.create(2000, 1424, "whiteTile").setAlpha(0.5);
-    let tile29 = this.tile.create(2032, 1424, "whiteTile").setAlpha(0.5);
+    let tile28 = this.tile.create(2000, 1424, "whiteTile").setAlpha(0);
+    let tile29 = this.tile.create(2032, 1424, "whiteTile").setAlpha(0);
 
-    let tile30 = this.tile.create(2128, 1360, "whiteTile").setAlpha(0.5);
-    let tile31 = this.tile.create(2160, 1360, "whiteTile").setAlpha(0.5);
+    let tile30 = this.tile.create(2128, 1360, "whiteTile").setAlpha(0);
+    let tile31 = this.tile.create(2160, 1360, "whiteTile").setAlpha(0);
 
-    let tile32 = this.tile.create(2256, 1296, "whiteTile").setAlpha(0.5);
-    let tile33 = this.tile.create(2288, 1296, "whiteTile").setAlpha(0.5);
+    let tile32 = this.tile.create(2256, 1296, "whiteTile").setAlpha(0);
+    let tile33 = this.tile.create(2288, 1296, "whiteTile").setAlpha(0);
 
-    let tile38 = this.tile.create(2384, 1232, "whiteTile").setAlpha(0.5);
-    let tile35 = this.tile.create(2416, 1232, "whiteTile").setAlpha(0.5);
+    let tile38 = this.tile.create(2384, 1232, "whiteTile").setAlpha(0);
+    let tile35 = this.tile.create(2416, 1232, "whiteTile").setAlpha(0);
 
-    let tile36 = this.tile.create(2512, 1168, "whiteTile").setAlpha(0.5);
-    let tile37 = this.tile.create(2544, 1168, "whiteTile").setAlpha(0.5);
+    let tile36 = this.tile.create(2512, 1168, "whiteTile").setAlpha(0);
+    let tile37 = this.tile.create(2544, 1168, "whiteTile").setAlpha(0);
 
 
     //this.cursor = this.input.keyboard.createCursorKeys();
@@ -292,41 +293,41 @@ class GameScene3 extends Scene {
     this.long = this.physics.add.staticGroup();
 
     //Left Side
-    let long1 = this.long.create(784, 2600, "whitePlatform").setAlpha(0.5);
-    let long2 = this.long.create(784, 2440, "whitePlatform").setAlpha(0.5);
-    let long3 = this.long.create(784, 2280, "whitePlatform").setAlpha(0.5);
-    let long4 = this.long.create(784, 2120, "whitePlatform").setAlpha(0.5);
-    let long5 = this.long.create(784, 1960, "whitePlatform").setAlpha(0.5);
-    let long6 = this.long.create(784, 1800, "whitePlatform").setAlpha(0.5);
-    let long7 = this.long.create(784, 1640, "whitePlatform").setAlpha(0.5);
-    let long8 = this.long.create(784, 1480, "whitePlatform").setAlpha(0.5);
-    let long9 = this.long.create(784, 1320, "whitePlatform").setAlpha(0.5);
-    let long10 = this.long.create(784, 1160, "whitePlatform").setAlpha(0.5);
-    let long11 = this.long.create(784, 1000, "whitePlatform").setAlpha(0.5);
+    let long1 = this.long.create(784, 2600, "whitePlatform").setAlpha(0);
+    let long2 = this.long.create(784, 2440, "whitePlatform").setAlpha(0);
+    let long3 = this.long.create(784, 2280, "whitePlatform").setAlpha(0);
+    let long4 = this.long.create(784, 2120, "whitePlatform").setAlpha(0);
+    let long5 = this.long.create(784, 1960, "whitePlatform").setAlpha(0);
+    let long6 = this.long.create(784, 1800, "whitePlatform").setAlpha(0);
+    let long7 = this.long.create(784, 1640, "whitePlatform").setAlpha(0);
+    let long8 = this.long.create(784, 1480, "whitePlatform").setAlpha(0);
+    let long9 = this.long.create(784, 1320, "whitePlatform").setAlpha(0);
+    let long10 = this.long.create(784, 1160, "whitePlatform").setAlpha(0);
+    let long11 = this.long.create(784, 1000, "whitePlatform").setAlpha(0);
 
     //Right Side
-    let long12 = this.long.create(3120, 2600, "whitePlatform").setAlpha(0.5);
-    let long13 = this.long.create(3120, 2440, "whitePlatform").setAlpha(0.5);
-    let long14 = this.long.create(3120, 2280, "whitePlatform").setAlpha(0.5);
-    let long15 = this.long.create(3120, 2120, "whitePlatform").setAlpha(0.5);
-    let long16 = this.long.create(3120, 1960, "whitePlatform").setAlpha(0.5);
-    let long17 = this.long.create(3120, 1800, "whitePlatform").setAlpha(0.5);
-    let long18 = this.long.create(3120, 1640, "whitePlatform").setAlpha(0.5);
-    let long19 = this.long.create(3120, 1480, "whitePlatform").setAlpha(0.5);
-    let long20 = this.long.create(3120, 1320, "whitePlatform").setAlpha(0.5);
-    let long21 = this.long.create(3120, 1160, "whitePlatform").setAlpha(0.5);
-    let long22 = this.long.create(3120, 1000, "whitePlatform").setAlpha(0.5);
+    let long12 = this.long.create(3120, 2600, "whitePlatform").setAlpha(0);
+    let long13 = this.long.create(3120, 2440, "whitePlatform").setAlpha(0);
+    let long14 = this.long.create(3120, 2280, "whitePlatform").setAlpha(0);
+    let long15 = this.long.create(3120, 2120, "whitePlatform").setAlpha(0);
+    let long16 = this.long.create(3120, 1960, "whitePlatform").setAlpha(0);
+    let long17 = this.long.create(3120, 1800, "whitePlatform").setAlpha(0);
+    let long18 = this.long.create(3120, 1640, "whitePlatform").setAlpha(0);
+    let long19 = this.long.create(3120, 1480, "whitePlatform").setAlpha(0);
+    let long20 = this.long.create(3120, 1320, "whitePlatform").setAlpha(0);
+    let long21 = this.long.create(3120, 1160, "whitePlatform").setAlpha(0);
+    let long22 = this.long.create(3120, 1000, "whitePlatform").setAlpha(0);
 
     // More
-    let long23 = this.long.create(1168, 1168, "whitePlatform").setAlpha(0.5);
-    let long24 = this.long.create(1168, 1328, "whitePlatform").setAlpha(0.5);
-    let long25 = this.long.create(1168, 1488, "whitePlatform").setAlpha(0.5);
-    let long26 = this.long.create(1168, 1500, "whitePlatform").setAlpha(0.5);
-    let long27 = this.long.create(1296, 1328, "whitePlatform").setAlpha(0.5);
-    let long28 = this.long.create(1296, 1423, "whitePlatform").setAlpha(0.5);
-    let long29 = this.long.create(1296, 1168, "whitePlatform").setAlpha(0.5);
-    let long30 = this.long.create(1296, 1008, "whitePlatform").setAlpha(0.5);
-    let long31 = this.long.create(1168, 1168, "whitePlatform").setAlpha(0.5);
+    let long23 = this.long.create(1168, 1168, "whitePlatform").setAlpha(0);
+    let long24 = this.long.create(1168, 1328, "whitePlatform").setAlpha(0);
+    let long25 = this.long.create(1168, 1488, "whitePlatform").setAlpha(0);
+    let long26 = this.long.create(1168, 1500, "whitePlatform").setAlpha(0);
+    let long27 = this.long.create(1296, 1328, "whitePlatform").setAlpha(0);
+    let long28 = this.long.create(1296, 1423, "whitePlatform").setAlpha(0);
+    let long29 = this.long.create(1296, 1168, "whitePlatform").setAlpha(0);
+    let long30 = this.long.create(1296, 1008, "whitePlatform").setAlpha(0);
+    let long31 = this.long.create(1168, 1168, "whitePlatform").setAlpha(0);
     
   }
 
@@ -399,7 +400,7 @@ class GameScene3 extends Scene {
     this.diamond.setScale(1);
 
     this.diamond = this.add.sprite(480, 20, "diamond").setScrollFactor(0);
-    this.scoreText = this.add.text(500, 15, "Score: ", {
+    this.scoreText = this.add.text(500, 15, "Items remaining: " + (3-numItems), {
       fontSize: "20px",
       fill: "#000",
     });
@@ -476,11 +477,11 @@ class GameScene3 extends Scene {
   // platformMovement(){
   //   console.log(this.movingPlatform)
   // }
-  collectDiamond(player, diamond) {
-    diamond.disableBody(true, true);
-    score += 10;
-    this.scoreText.setText("Score: " + score);
-  };
+  // collectDiamond(player, diamond) {
+  //   diamond.disableBody(true, true);
+  //   score += 10;
+  //   this.scoreText.setText("Score: " + score);
+  // };
 
   ExitCreation(){
     this.ExitDoor = this.physics.add.sprite(760, 850, "Caveman1");
