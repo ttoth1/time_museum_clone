@@ -1,9 +1,9 @@
 import { Scene } from "phaser";
 
 
-let player;
-let playerX = 1000;
-let playerY = 2600;
+// let player;
+// let playerX = 1000;
+// let playerY = 2600;
 let playerHealth = 100;
 let playerMaxHealth = 100;
 let items;
@@ -61,6 +61,10 @@ class GameScene3 extends Scene {
       frameWidth: 32,
       frameHeight: 32,
     });
+    this.load.spritesheet("Caveman1", "assets/Level1Enemies/Caveman1.png", {
+      frameWidth: 32,
+      frameHeight: 32,
+    });
     this.load.image("platform", "assets/platform.png");
     // this.load.spritesheet("bullets", "assets/walkingSpritesheet.png", {
     //   frameWidth: 32,
@@ -94,7 +98,7 @@ class GameScene3 extends Scene {
     this.createPlatforms();
     this.createCollision();
     this.createLong();
-    this.createPlayer();
+    this.createPlayer(1000, 2600);
     this.createEnemy();
     this.diamondCreation(500, 200, "CavemanRobes");
     this.diamondCreation(100, 100, "DinosaurBone");
@@ -106,7 +110,7 @@ class GameScene3 extends Scene {
 
     // this.gameOverText = this.add.text(400, 300, 'Game Over', {
     //   fontSize: '64px',
-    //   fill: '#000'
+    //   fill: '#FFF'
     // })
     // this.gameOverText.setOrigin(0.5);
     // this.gameOverText.visible = false;
@@ -326,8 +330,8 @@ class GameScene3 extends Scene {
     
   }
 
-  createPlayer() {
-    this.player = this.physics.add.sprite(playerX, playerY, "player");
+  createPlayer(x, y) {
+    this.player = this.physics.add.sprite(x, y, "player");
     // this.player.body.collideWorldBounds = true;
     this.physics.add.collider(this.player, this.platform);
     this.physics.add.collider(this.player, this.tile);
@@ -479,7 +483,8 @@ class GameScene3 extends Scene {
   };
 
   ExitCreation(){
-    this.ExitDoor = this.physics.add.sprite(760, 450, "player");
+    this.ExitDoor = this.physics.add.sprite(760, 850, "Caveman1");
+    // this.ExitDoor.visible = false;
     this.physics.add.collider(this.ExitDoor, this.platform);
     this.physics.add.overlap(this.ExitDoor, this.player, this.Exit, null, this);
   }
@@ -522,7 +527,7 @@ class GameScene3 extends Scene {
     this.gameOverState = true;
     this.gameOverText = this.add.text(400, 300, 'Game Over.\nClick to\ntry again.', {
       fontSize: '64px',
-      fill: '#000'
+      fill: '#FFF'
     })
     this.gameOverText.setOrigin(0.5);
     // this.gameOverText.visible = false;

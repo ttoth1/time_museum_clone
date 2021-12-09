@@ -113,7 +113,7 @@ class GameScene2 extends Scene {
 
     this.gameOverText = this.add.text(400, 300, 'Game Over.\nClick to\ntry again.', {
       fontSize: '64px',
-      fill: '#000'
+      fill: '#FFF'
     })
     this.gameOverText.setOrigin(0.5);
     this.gameOverText.visible = false;
