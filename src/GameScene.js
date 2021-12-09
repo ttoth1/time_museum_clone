@@ -693,7 +693,7 @@ class GameScene extends Scene {
     this.createPlatforms();
     this.createCollision();
     this.createLong();
-    this.createPlayer(150, 200);
+    this.createPlayer(150, 800);
     // this.createEnemy(200, 850, "Caveman1");
     // this.diamondCreation(1000, 900);
     this.createEnemy(1100, 200, "Caveman1")
