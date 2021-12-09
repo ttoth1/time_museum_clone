@@ -660,7 +660,7 @@ class GameScene extends Scene {
       frameWidth: 32,
       frameHeight: 32,
     });
-    this.load.image("platform", "Assets/platform.png");
+    this.load.image("platform", "assets/platform.png");
     // this.load.spritesheet("bullets", "Assets/walkingSpritesheet.png", {
     //   frameWidth: 32,
     //   frameHeight: 32,
@@ -670,7 +670,7 @@ class GameScene extends Scene {
     //   frameHeight: 32,
     // });
     this.load.image("diamond", "Assets/diamond.png");
-    this.load.image("greenHB", "Assets/greenHB.png");
+    this.load.image("greenHB", "assets/greenHB.png");
     this.load.image("redHB", "Assets/redHB.png");
 
     this.load.image("CavemanRobes", "assets/items/CavemanRobes.png");
