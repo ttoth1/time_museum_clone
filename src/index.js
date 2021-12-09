@@ -6,7 +6,7 @@ import EndScreen from "./EndScreen.js"
 import GameScene3 from "./GameScene3.js";
 
 var config = {
-  type: Phaser.AUTO,
+  type: Phaser.CANVAS,
   parent: "phaser-example",
   width: 800,
   height: 600,
