@@ -591,6 +591,7 @@ class GameScene2 extends Scene {
   create() {
     const background = this.add.image(0, 0, 'bg2').setScale(1).setScrollFactor(1);;
     background.setOrigin(0, 0);
+    const doorOut = this.add.image(700, 450, 'whiteTile');
     this.createPlatforms();
     this.createCollision();
     this.createLong();
