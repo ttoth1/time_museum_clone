@@ -647,12 +647,16 @@ class GameScene extends Scene {
   preload() {
     //this.load.image("logo", "assets/logo.png");
 
-    this.load.image("background", "assets/World1.jpg");
+    this.load.image("background", "assets/World1.png");
     this.load.spritesheet("player", "Assets/PlayerSpriteSheetHorizontal.png", {
       frameWidth: 32,
       frameHeight: 32,
     });
     this.load.spritesheet("Caveman1", "assets/Level1Enemies/Caveman1.png", {
+      frameWidth: 32,
+      frameHeight: 32,
+    });
+    this.load.spritesheet("Man3", "assets/Level2Enemies/Man3.png", {
       frameWidth: 32,
       frameHeight: 32,
     });
@@ -689,7 +693,7 @@ class GameScene extends Scene {
     this.createPlatforms();
     this.createCollision();
     this.createLong();
-    this.createPlayer(100, 800);
+    this.createPlayer(150, 200);
     // this.createEnemy(200, 850, "Caveman1");
     // this.diamondCreation(1000, 900);
     this.createEnemy(1100, 200, "Caveman1")
@@ -1115,8 +1119,8 @@ class GameScene extends Scene {
   }
 
   ExitCreation(){
-    this.ExitDoor = this.physics.add.sprite(100, 250, "player");
-    this.ExitDoor.visible = false;
+    this.ExitDoor = this.physics.add.sprite(80, 250, "Man3");
+    // this.ExitDoor.visible = false;
     this.physics.add.collider(this.ExitDoor, this.platform);
     this.physics.add.overlap(this.ExitDoor, this.player, this.Exit, null, this);
   }
