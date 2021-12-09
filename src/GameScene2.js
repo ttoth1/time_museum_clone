@@ -585,7 +585,7 @@ class GameScene2 extends Scene {
 
   }
   create() {
-    const background = this.add.image(0, 0, 'background').setScale(1).setScrollFactor(1);;
+    const background = this.add.image(0, 0, 'bg2').setScale(1).setScrollFactor(1);;
     background.setOrigin(0, 0);
     this.createPlatforms();
     this.createCollision();
