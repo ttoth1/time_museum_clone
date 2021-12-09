@@ -19,7 +19,7 @@ var config = {
   },
   // scene: [introScreen, GameScene, GameScene2, GameScene3, EndScreen],
   // scene: [GameScene2, EndScreen],
-  scene: [introScreen, GameScene],
+  scene: [GameScene],
 };
 
 var game = new Phaser.Game(config);
