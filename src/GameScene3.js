@@ -56,23 +56,23 @@ class GameScene3 extends Scene {
   preload() {
     //this.load.image("logo", "assets/logo.png");
 
-    this.load.image("background", "Assets/world3.png");
-    this.load.spritesheet("player", "Assets/PlayerSpriteSheetHorizontal.png", {
+    this.load.image("background", "assets/world3.png");
+    this.load.spritesheet("player", "assets/PlayerSpriteSheetHorizontal.png", {
       frameWidth: 32,
       frameHeight: 32,
     });
-    this.load.image("platform", "Assets/platform.png");
-    // this.load.spritesheet("bullets", "Assets/walkingSpritesheet.png", {
+    this.load.image("platform", "assets/platform.png");
+    // this.load.spritesheet("bullets", "assets/walkingSpritesheet.png", {
     //   frameWidth: 32,
     //   frameHeight: 32,
     // });
-    // this.load.spritesheet("health", "Assets/walkingSpritesheet.png", {
+    // this.load.spritesheet("health", "assets/walkingSpritesheet.png", {
     //   frameWidth: 32,
     //   frameHeight: 32,
     // });
-    this.load.image("diamond", "Assets/diamond.png");
-    this.load.image("greenHB", "Assets/greenHB.png");
-    this.load.image("redHB", "Assets/redHB.png");
+    this.load.image("diamond", "assets/diamond.png");
+    this.load.image("greenHB", "assets/greenHB.png");
+    this.load.image("redHB", "assets/redHB.png");
 
     this.load.image("CavemanRobes", "assets/items/CavemanRobes.png");
     this.load.image("CureAllPotion", "assets/items/CureAllPotion.png");
