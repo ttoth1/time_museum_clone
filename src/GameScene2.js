@@ -551,7 +551,7 @@ class GameScene2 extends Scene {
       frameWidth: 32,
       frameHeight: 32,
     });
-    this.load.spritesheet("Caveman1", "assets/Items/Caveman1.png", {
+    this.load.spritesheet("Caveman1", "assets/Level1Enemies/Caveman1.png", {
       frameWidth: 32,
       frameHeight: 32,
     });
