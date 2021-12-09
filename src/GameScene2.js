@@ -935,7 +935,7 @@ class GameScene2 extends Scene {
   }
 
   ExitCreation(){
-    this.ExitDoor = this.physics.add.sprite(760, 450, "Caveman1");
+    this.ExitDoor = this.physics.add.sprite(760, 850, "Caveman1");
     // this.ExitDoor.visible = false;
     this.physics.add.collider(this.ExitDoor, this.platform);
     this.physics.add.overlap(this.ExitDoor, this.player, this.Exit, null, this);
