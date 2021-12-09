@@ -22,7 +22,7 @@ class introScreen extends Scene {
     super('intro')
   }
   preload(){
-    this.load.image('logo', 'assets/World1.png')
+    this.load.image('logo', 'assets/logo.png')
   }
 
 
