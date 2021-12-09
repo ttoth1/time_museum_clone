@@ -74,15 +74,15 @@ class GameScene3 extends Scene {
     this.load.image("greenHB", "assets/greenHB.png");
     this.load.image("redHB", "assets/redHB.png");
 
-    this.load.image("CavemanRobes", "assets/items/CavemanRobes.png");
-    this.load.image("CureAllPotion", "assets/items/CureAllPotion.png");
-    this.load.image("DinosaurBone", "assets/items/DinosaurBone.png");
-    this.load.image("NES", "assets/items/NES.png");
-    this.load.image("PoisonedBerry", "assets/items/PoisonedBerry.png");
-    this.load.image("RubixCube", "assets/items/RubixCube.png");
-    this.load.image("SignedBCPoster", "assets/items/SignedBCPoster.png");
-    this.load.image("TalkingToothbrush", "assets/items/TalkingToothbrush.png");
-    this.load.image("ToyRobot", "assets/items/ToyRobot.png");
+    this.load.image("CavemanRobes", "assets/Items/CavemanRobes.png");
+    this.load.image("CureAllPotion", "assets/Items/CureAllPotion.png");
+    this.load.image("DinosaurBone", "assets/Items/DinosaurBone.png");
+    this.load.image("NES", "assets/Items/NES.png");
+    this.load.image("PoisonedBerry", "assets/Items/PoisonedBerry.png");
+    this.load.image("RubixCube", "assets/Items/RubixCube.png");
+    this.load.image("SignedBCPoster", "assets/Items/SignedBCPoster.png");
+    this.load.image("TalkingToothbrush", "assets/Items/TalkingToothbrush.png");
+    this.load.image("ToyRobot", "assets/Items/ToyRobot.png");
     this.load.image("whiteTile", "assets/Blank.png");
     this.load.image("whitePlatform", "assets/Blank2.png");
 
