@@ -104,7 +104,7 @@ class GameScene extends Scene {
     this.createPlatforms();
     this.createCollision();
     this.createLong();
-    this.createPlayer(100, 150);
+    this.createPlayer(100, 850);
     // this.createEnemy(200, 850, "Caveman1");
     // this.diamondCreation(1000, 900);
     this.createEnemy(1100, 200, "Caveman1");
@@ -531,7 +531,7 @@ class GameScene extends Scene {
 
   ExitCreation(){
     this.ExitDoor = this.physics.add.sprite(80, 250, "Man3");
-    // this.ExitDoor.visible = false;
+    this.ExitDoor.visible = false;
     this.physics.add.collider(this.ExitDoor, this.platform);
     this.physics.add.overlap(this.ExitDoor, this.player, this.Exit, null, this);
   }
